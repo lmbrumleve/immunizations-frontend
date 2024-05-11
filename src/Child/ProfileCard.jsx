@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import axios from 'axios';
 
 export default function ProfileCard() {
+
+  const [children, setChildren] = useState([]);
+
+  useEffect(()=>{
+    loadChildren();
+  }, [])
+
+  const loadChildren= async ()=>{
+    const result= await axios.get("http://localhost:8080/children")
+    console.log(result.data)
+    setChildren(result.data)
+  }
+
+
   return (
     <div>
 
