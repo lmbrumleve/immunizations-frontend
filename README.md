@@ -1,2 +1,2 @@
 # immunizations-frontend
- Front end code for my family immunizations application.
+ Front end code for my family immunizations tracker application.
