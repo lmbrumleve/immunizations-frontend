@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProfileCard from '../Child/ProfileCard';
 import UserTable from '../users/UserTable';
 
 
 export default function Home() {
+
   return (
     <div className='container'>
         <div className='py-4'>
