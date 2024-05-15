@@ -26,6 +26,7 @@ export default function UserTable() {
           <th>First Name</th>
           <th>Last Name</th>
           <th>Username</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -37,6 +38,11 @@ export default function UserTable() {
           <td>{ans.name}</td>
           <td>{ans.username}</td>
           <td>{ans.email}</td>
+          <td>
+            <button className='btn btn-primary mx-2'>View</button>
+            <button className='btn btn-primary mx-2'>Edit</button>
+            <button className='btn btn-primary mx-2'>Delete</button>
+          </td>
         </tr>
         
         ))

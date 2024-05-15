@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
-import { TextField } from '@mui/material';
+import { TextField, Box } from '@mui/material';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 export default function ProfileCard() {
 
@@ -31,7 +32,16 @@ export default function ProfileCard() {
     margin="normal"
     sx={{ width: "100%" }}
     /> */}
-{children.map((child) =>(
+    <Box
+    sx={{
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      padding: "32px 64px",
+      gap: "16px",
+    }}
+    >
+    {children.map((child) =>(
     <Card style={{ width: '18rem' }} className='shadow'>
     <Card.Img variant="top" src="holder.js/100px180" />
     <Card.Body>
@@ -39,12 +49,11 @@ export default function ProfileCard() {
       <Card.Text>
         {format(child.dateOfBirth, "MMMM dd, yyyy")}
       </Card.Text>
-      <Button variant="primary">View Profile</Button>
+        <Link className="btn btn-primary" to="/viewProfile">View Profile</Link>
     </Card.Body>
   </Card>
 ))}
-
-
+    </Box>
     </>
   )
 }

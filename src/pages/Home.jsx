@@ -9,8 +9,6 @@ export default function Home() {
     <div className='container'>
         <div className='py-4'>
         <UserTable/>
-        <ProfileCard/>
-
         </div>
     </div>
   )
