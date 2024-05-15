@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
+import { TextField } from '@mui/material';
+import { format } from 'date-fns';
 
 export default function ProfileCard() {
 
   const [children, setChildren] = useState([]);
+  const [searchTerm, setSearchTerm] = useState([]);
 
   useEffect(()=>{
     loadChildren();
@@ -17,22 +20,31 @@ export default function ProfileCard() {
     setChildren(result.data)
   }
 
-
   return (
-    <div>
-
+    <>
+    {/* <TextField
+    id="childName"
+    label="Child Name"
+    value={searchTerm}
+    onChange={console.log(searchTerm)}
+    variant="standard"
+    margin="normal"
+    sx={{ width: "100%" }}
+    /> */}
+{children.map((child) =>(
     <Card style={{ width: '18rem' }} className='shadow'>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <Card.Img variant="top" src="holder.js/100px180" />
+    <Card.Body>
+      <Card.Title>{child.firstName + " " + child.lastName}</Card.Title>
+      <Card.Text>
+        {format(child.dateOfBirth, "MMMM dd, yyyy")}
+      </Card.Text>
+      <Button variant="primary">View Profile</Button>
+    </Card.Body>
+  </Card>
+))}
 
-    </div>
+
+    </>
   )
 }
