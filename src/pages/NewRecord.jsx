@@ -38,7 +38,7 @@ export default function NewRecord() {
   return (
     <div className='container'>
         <div className='row'>
-            <div className='offset-md-3 border rounded p-4 mt-2 shadow' >
+            <div className=' border rounded p-4 mt-2 shadow' >
                 <h2 className='text-center m-4'>New Immunization Record</h2>
                 <label htmlFor="child" className='m-2'>Applies to Child:</label>
             <select className="m-2" id="child" name="child" onChange = {(e)=>setChildID(e.target.value)}>
