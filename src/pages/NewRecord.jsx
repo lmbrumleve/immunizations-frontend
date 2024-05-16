@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import CalendarInput from '../layout/CalendarInput';
 
 export default function NewRecord() {
     const[childID, setChildID]=useState([]);
@@ -37,27 +38,30 @@ export default function NewRecord() {
   return (
     <div className='container'>
         <div className='row'>
-            <div className='offset-md-3 border rounded p-4 mt-2 shadow'>
-                <h2 className='text-center m-4'>Create New Record</h2>
-                <label htmlFor="child">Applies to Child</label><br />
-            <select id="child" name="child" onChange = {(e)=>setChildID(e.target.value)}>
+            <div className='offset-md-3 border rounded p-4 mt-2 shadow' >
+                <h2 className='text-center m-4'>New Immunization Record</h2>
+                <label htmlFor="child" className='m-2'>Applies to Child:</label>
+            <select className="m-2" id="child" name="child" onChange = {(e)=>setChildID(e.target.value)}>
                 <option value="">-</option>
                 {children.map(c=>(
                     <option value={kidId}>{c.firstName + " " + c.lastName}</option>
                 ))}
-            </select><br />
-               
-                <label htmlFor='vaccineGroup' className='form-label'>
-                    Vaccine Group
+            </select>
+            <br />
+            <div style={{display:'flex', flexDirection:'row'}}>
+                <label htmlFor='vaccineGroup' className='form-label m-2'>
+                    Vaccine:
                 </label>
                 <input
                 type={"text"}
                 className='form-control'
-                placeholder='Which vaccine was administered?'
+                placeholder='Enter the vaccine that was administered'
                 name="vaccineGroup"
-                value={vaccineGroup}
+                id="vaccineGroup"
+                defaultValue={vaccineGroup}
                 onChange= {(e)=>onInputChange(e)}
                 />
+                </div>
                 <br/>
                     {"Dose:  "} 
                     <br/>
@@ -66,70 +70,74 @@ export default function NewRecord() {
                 name="dose"
                 value="1"
                 id="1"
-                // checked={immunization.dose === 1}
+                defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>1</label>
+                <label htmlFor='dose' className='form-label'>1st</label>
                 <input
                 type={"radio"}
                 name="dose"
-                value="2"
                 id="2"
-                // checked={immunization.dose === 2}
+                defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>2</label>
+                <label htmlFor='dose' className='form-label'>2nd</label>
                 <input
                 type={"radio"}
                 name="dose"
-                value="3"
                 id="3"
-                // checked={immunization.dose === 3}
+                defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>3</label>
+                <label htmlFor='dose' className='form-label'>3rd</label>
                 <input
                 type={"radio"}
                 name="dose"
                 value="4"
                 id="4"
-                // checked={immunization.dose === 4}
+                defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>4</label>
+                <label htmlFor='dose' className='form-label'>4th</label>
                 <br/>
                 <label htmlFor='dateAdministered' className='form-label'>
-                    Date Administered
+                    Date Administered:
                 </label>
-                <input
-                type={"text"}
+                <CalendarInput                 
                 className='form-control'
                 placeholder='Enter the date administered'
                 name="dateAdministered"
-                value={dateAdministered}
-                onChange= {(e)=>onInputChange(e)}
-                />
-                <label htmlFor='vaccineBrand' className='form-label'>
-                    Vaccine Brand
+                id="dateAdministered"
+                defaultValue={dateAdministered}
+                onChange= {(e)=>onInputChange(e)}/>
+                <br/>
+                <div style={{display:'flex', flexDirection:'row'}}>
+                <label htmlFor='vaccineBrand' className='form-label m-2'>
+                    Vaccine Brand:
                 </label>
                 <input
                 type={"text"}
-                className='form-control'
+                className='form-control m-2'
                 placeholder='Enter the vaccine brand'
                 name="vaccineBrand"
-                value={vaccineBrand}
+                id="vaccineBrand"
+                defaultValue={vaccineBrand}
                 onChange= {(e)=>onInputChange(e)}
                 />
-                <label htmlFor='doctorName' className='form-label'>
-                    Doctor
+                </div>
+                <div style={{display:'flex', flexDirection:'row'}}>
+                <label htmlFor='doctorName' className='form-label m-2'>
+                    Doctor:
                 </label>
                 <input
                 type={"text"}
-                className='form-control'
-                placeholder='Which doctor administered the vaccine?'
+                className='form-control m-2'
+                placeholder="Enter the doctor's name"
                 name="doctorName"
-                value={doctorName}
+                id="doctorName"
+                defaultValue={doctorName}
                 onChange= {(e)=>onInputChange(e)}
                 />
+                </div>
                 <br/>
-                <button type="submit" className='btn btn-primary'>Submit</button>
-                <Link className="btn btn-light" to="/">Cancel</Link>
+                <button type="submit" className='btn btn-primary submit'>Submit</button>
+                <Link className="btn btn-outline-primary cancel" to="/">Cancel</Link>
             </div>
 
         </div>

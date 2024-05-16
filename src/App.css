@@ -44,3 +44,16 @@
 .form-label {
   padding: 10px;
 }
+
+.submit {
+  margin: 10px;
+}
+
+.cancel {
+  margin: 10px;
+}
+
+.input-group-text {
+  height: 40px;
+  cursor: pointer;
+}
