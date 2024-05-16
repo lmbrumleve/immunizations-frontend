@@ -48,6 +48,7 @@ export default function NewRecord() {
                 ))}
             </select>
             <br />
+            <br/>
             <div style={{display:'flex', flexDirection:'row'}}>
                 <label htmlFor='vaccineGroup' className='form-label m-2'>
                     Vaccine:
@@ -63,8 +64,8 @@ export default function NewRecord() {
                 />
                 </div>
                 <br/>
-                    {"Dose:  "} 
-                    <br/>
+                <div style={{display:'flex', flexDirection:'row' }}>
+                <p className='form-label m-1' >Dose: </p>
                 <input
                 type={"radio"}
                 name="dose"
@@ -72,21 +73,21 @@ export default function NewRecord() {
                 id="1"
                 defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>1st</label>
+                <label htmlFor='dose' className='form-label m-1'>1st</label>
                 <input
                 type={"radio"}
                 name="dose"
                 id="2"
                 defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>2nd</label>
+                <label htmlFor='dose' className='form-label m-1'>2nd</label>
                 <input
                 type={"radio"}
                 name="dose"
                 id="3"
                 defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>3rd</label>
+                <label htmlFor='dose' className='form-label m-1'>3rd</label>
                 <input
                 type={"radio"}
                 name="dose"
@@ -94,7 +95,8 @@ export default function NewRecord() {
                 id="4"
                 defaultValue={dose}
                 />
-                <label htmlFor='dose' className='form-label'>4th</label>
+                <label htmlFor='dose' className='form-label m-1'>4th</label>
+                </div>
                 <br/>
                 <label htmlFor='dateAdministered' className='form-label'>
                     Date Administered:
@@ -107,7 +109,7 @@ export default function NewRecord() {
                 defaultValue={dateAdministered}
                 onChange= {(e)=>onInputChange(e)}/>
                 <br/>
-                <div style={{display:'flex', flexDirection:'row'}}>
+                {/* <div style={{display:'flex', flexDirection:'row'}}>
                 <label htmlFor='vaccineBrand' className='form-label m-2'>
                     Vaccine Brand:
                 </label>
@@ -120,7 +122,7 @@ export default function NewRecord() {
                 defaultValue={vaccineBrand}
                 onChange= {(e)=>onInputChange(e)}
                 />
-                </div>
+                </div> */}
                 <div style={{display:'flex', flexDirection:'row'}}>
                 <label htmlFor='doctorName' className='form-label m-2'>
                     Doctor:
